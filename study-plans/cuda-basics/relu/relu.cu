@@ -1,8 +1,6 @@
 #include <cuda_runtime.h>
 
 __global__ void relu_kernel(const float* input, float* output, int N) {
-    float max_float = 0;
-
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(idx < N)  output[idx] = fmaxf(0, input[idx]); 
